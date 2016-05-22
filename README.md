@@ -40,13 +40,16 @@ This is forked repository from [nusco/ruby-metaprogramming-tokyo](https://github
 
 # 本リポジトリについて
 
-本リポジトリは、2015年12月15日に行われた[【出版記念】メタプログラミングRubyトレーニング](https://waicrew.doorkeeper.jp/events/32280)で使われたノートおよび課題集です。
+本リポジトリは、2015年12月15日に行われた  
+[【出版記念】メタプログラミングRubyトレーニング](https://waicrew.doorkeeper.jp/events/32280)  
+で使われたノートおよび課題集です。
 
-Fork元のリポジトリ: nusco/ruby-metaprogramming-tokyo
+Fork元のリポジトリ: nusco/ruby-metaprogramming-tokyo  
 https://github.com/nusco/ruby-metaprogramming-tokyo/
 
-CoEdo.rbで行われる非営利の用途に限り、上記主催者のPaoloさんおよび角さんから利用させて頂く承諾を事前に得ております。
+上記主催者のPaoloさんおよび角さんから、CoEdo.rbで行われる非営利の用途に限り  
+ご利用させて頂く承諾を事前に得ております。
 
-Yohei Yasukawa (@yasulab)
-YassLab - Having a Good Life with OpenSource ;)
+Yohei Yasukawa ([@yasulab](https://twitter.com/yasulab))  
+YassLab - Having a Good Life with OpenSource ;)  
 http://yaslab.jp/
