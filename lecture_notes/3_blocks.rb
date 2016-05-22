@@ -1,16 +1,17 @@
-# Quiz: 3.rubython
+# -*- coding: utf-8 -*-
+# 課題: 3.rubython
 
-# blocks are closures
+# ブロックとは、クロージャである
 
 def my_method
   x = "Goodbye"
-  yield("cruel")
+  yield "無慈悲な世界へ"
 end
 
 x = "Hello"
-my_method {|y| "#{x}, #{y} world" } # => "Hello, cruel world"
+my_method {|y| "#{x}, #{y}" } # => "Hello, ...?"
 
-# bindings inside the block disappear after the block
+# ブロック内での束縛は、ブロック外では消える
 
 def just_yield
   yield
@@ -24,11 +25,11 @@ just_yield do
 end
 
 top_level_variable # => 2
-# local_to_block is out of scope here
 
-# [restart interpreter]
+# local_to_block はスコープの外にある
+# (REPLを再起動する)
 
-# scope gates
+# スコープゲートについて
 
 local_variables
 
@@ -50,11 +51,11 @@ obj = MyClass.new
 obj.my_method
 local_variables # => [:obj, :v1, :top_level_variable, :x, :_]
 
-# [explain the three scope gates: class definitions, module definitions, methods]
+# [3つのスコープゲート: クラス定義、モジュール定義、メソッド定義]
 
-# Quiz: 3.scope_gates
+# 課題: 3.scope_gates
 
-# instance_eval
+# instance_eval メソッド
 
 class MyClass
   def initialize
@@ -73,25 +74,23 @@ v = 2
 obj.instance_eval { @v = v }
 obj.instance_eval { @v } # => 2
 
-# procs
-
-# [restart interpreter]
+# Proc オブジェクト
+# (REPLを再起動する)
 
 inc = Proc.new {|x| x + 1 }
 inc.call(2) # => 3
 
-# lambdas
+# Lambda メソッド
 
 dec = lambda {|x| x - 1 }
-dec.class # => Proc
+dec.class   # => Proc
 dec.call(2) # => 1
 
 p = ->(x) { x + 1 }
 p.call(2) # => 1
 
-# the & operator
-
-# [restart interpreter]
+# & オペレーター
+# (REPLを再起動する)
 
 def my_method1(&the_proc)
   the_proc
@@ -108,4 +107,4 @@ end
 my_proc = proc { "Bill" }
 my_method2("Hello", &my_proc)
 
-# Quiz: 3.buffer
+# 課題: 3.buffer

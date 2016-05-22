@@ -1,10 +1,11 @@
-# code in class definitions is just code
+# -*- coding: utf-8 -*-
+# クラス定義内 "も" コードである
 
 class MyClass
   puts 'Hello'
 end
 
-# class definitions return the last value
+# クラス定義は、最後の値を返す
 
 result = class MyClass
   42
@@ -14,14 +15,13 @@ result = class MyClass
   self
 end
 
-# class_eval
+# class_eval メソッド
 
 MyClass.instance_eval do
   def m; end
 end
 
-# error:
-# MyClass.m
+# エラー: MyClass.m
 
 MyClass.class_eval do
   self
@@ -33,13 +33,13 @@ end
 
 MyClass.m # => 100
 
-# Class Instance Variables
+# クラス内のインスタンス変数
 
 class MyClass
   @v = 1
 end
 
-# where is @my_var?
+# @my_var はどこにある?
 
 class MyClass
   def self.read; @v; end
@@ -47,7 +47,7 @@ class MyClass
   def read; @v; end
 end
 
-# [draw diagram]
+# [図を描いてみる]
 
 obj = MyClass.new
 obj.read            # => nil
@@ -55,7 +55,7 @@ obj.write
 obj.read            # => 2
 MyClass.read        # => 1
 
-# (optional): class variables and why they are confusing
+# (任意) クラス変数と、クラス変数が分かりづらい理由
 
 class C
   @@v = 1
@@ -75,9 +75,10 @@ end
 
 @@v # => 2
 
-# Quiz: 4.class_taboo
 
-# Singleton Methods
+# 課題: 4.class_taboo
+
+# 得意メソッド (Singleton Method)
 
 str = "just a regular string"
 
@@ -89,7 +90,7 @@ str.uppercase?                  # => false
 str.methods.grep(/upper/)       # => [:uppercase?]
 str.singleton_methods           # => [:uppercase?]
 
-# the truth about class methods
+# class メソッドの真実
 
 class C; end
 obj = C.new
@@ -100,10 +101,10 @@ C.name
 def obj.a_singleton_method; end
 def C.a_class_method; end
 
-# [tell the truth about class methods :) ]
-# [restart interpreter]
+# [class メソッドの真実を説明する :) ]
+# [REPLを再起動する]
 
-# Singleton Classes
+# 特異クラス (Singleton Class)
 
 class MyClass
   def my_method; end
@@ -112,7 +113,7 @@ end
 obj = MyClass.new
 obj.my_method
 
-# [draw "normal" diagram]
+# ["normal" の図を描いてみる]
 
 def obj.my_singleton_method; end
 obj.my_singleton_method
@@ -120,28 +121,28 @@ obj.my_singleton_method
 def MyClass.my_class_method; end
 MyClass.my_class_method
 
-# [extend "normal" diagram]
-# [where did these methods go?]
+# ["normal" の図を拡張してみる]
+# [このメソッドはどこにいった?]
 
 class << obj
-  # your code here
+  # ここにコードを書く
 end
 
 obj = Object.new
 singleton_class = class << obj
   self
 end
-singleton_class # => #<Class:#<Object:0x007fa0a10b6190>>
+singleton_class       # => #<Class:#<Object:0x007fa0a10b6190>>
 singleton_class.class # => Class
 
 "abc".singleton_class # => #<Class:#<String:0x007fa0a10b5880>>
 
-# singleton classes are where singleton methods live
+# 特異クラスは、特異メソッドsingleton classes are where singleton methods live
 
 def obj.my_singleton_method; end
 singleton_class.instance_methods.grep(/my_/) # => [:my_singleton_method]
 
-# method lookup revisited
+# メソッドの調べ方 (再掲)
 
 class C
   def a_method
@@ -153,7 +154,7 @@ class D < C; end
 obj = D.new
 obj.a_method # => "C#a_method()"
 
-# [draw diagram]
+# [図を描いてみる]
 
 class << obj
   def a_singleton_method
@@ -161,9 +162,9 @@ class << obj
   end
 end
 
-# [update diagram]
+# [図を更新する]
 
-# advanced: singleton classes and inheritance
+# 応用編: 特異クラスと、その継承
 
 class C
   class << self
@@ -173,20 +174,20 @@ class C
   end
 end
 
-# [update diagram as you go]
+# [図を更新する]
 
 C.singleton_class # => #<Class:C>
 D.singleton_class # => #<Class:D>
 D.singleton_class.superclass # => #<Class:C>
 C.singleton_class.superclass # => #<Class:Object>
 
-# why this complex arrangement?
+# どうしてここまで複雑なのか? (why this complex arrangement?)
 
 D.a_class_method # => "C.a_class_method()"
 
-# [restart interpreter]
+# [REPLを再起動する]
 
-# aliases
+# エイリアス (aliases)
 
 class MyClass
   def my_method; 'my_method()'; end
@@ -197,7 +198,7 @@ obj = MyClass.new
 obj.my_method # => "my_method()"
 obj.m # => "my_method()"
 
-# around aliases
+# エイリアス周りについて
 
 class MyString < String; end
 
@@ -212,9 +213,8 @@ class MyString
   end
 end
 
-MyString.new("Hi!").length # => "short"
+MyString.new("Hi!").length           # => "short"
 MyString.new("Hello, world!").length # => "long"
 
-# Quiz: 4.broken_math
-
-# handout: object_model_2_swrap_up.txt
+# 課題: 4.broken_math
+# 配布: object_model_2_wrap_up.md

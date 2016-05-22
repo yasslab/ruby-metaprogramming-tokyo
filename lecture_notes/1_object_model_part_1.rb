@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class C
   def x
     1
@@ -7,7 +9,7 @@ end
 obj = C.new
 obj.x
 
-# class definitions are just code
+# クラス定義も、ただのコードである
 
 class C
   puts "hello"
@@ -19,7 +21,7 @@ end
   end
 end
 
-# same class, not different classes
+# すべて同じクラスで、違うクラスではない
 
 class D
   def x; 'x'; end
@@ -33,7 +35,7 @@ obj = D.new
 obj.x # => "x"
 obj.y # => "y"
 
-# Open Class / Monkeypatch
+# オープンクラス
 
 class String
   def shout
@@ -44,7 +46,7 @@ end
 "hello".class # => String
 "hello".shout # => "HELLO!"
 
-# classes and objects example program
+# クラスとオブジェクト
 
 class MyClass
   def my_method
@@ -55,45 +57,49 @@ end
 obj = MyClass.new
 obj.class # => MyClass
 
-# [whiteboard diagram: classes and objects]
+# [板書: クラスとオブジェクトの関係図]
 
-# where are instance variables?
+# インスタンス変数はどこにある?
 
 obj.instance_variables # => []
 obj.my_method
 obj.instance_variables # => [:@v]
 
-# [diagram: instance variables are in the object]
+# [板書: インスタンス変数はオブジェクトの中にある]
 
 obj.methods
 obj.methods.grep(/my/) # => [:my_method]
 
-# [diagram: methods are in the class]
+# [板書: メソッドはクラスの中にある]
 
-# "methods" vs. "instance methods"
+# メソッド vs. インスタンスメソッド
 
 MyClass.instance_methods == obj.methods # => true
 MyClass.methods == obj.methods # => false
 
-# classes are objects
+# クラス "も" オブジェクトである
 
 obj.class # => MyClass
 MyClass.class # => Class
 
 Class.instance_methods(false) # => [:allocate, :new, :superclass]
 MyClass.new
+# mod.instance_methods(all = true)
+# 配列には親クラスやインクルードしているモジュールのメソッドも含まれます。
+# 引数にfalseを指定すると、そのクラスやモジュールで定義されているメソッドだけが返ります。
+# http://ref.xaio.jp/ruby/classes/module/instance_methods
 
-# superclasses
+# スーパークラスを調べる
 
 MyClass.superclass # => Object
 Array.superclass # => Object
 
-# [add to diagram]
+# [板書に追記]
 
 Object.superclass # => BasicObject
 BasicObject.superclass # => nil
 
-# class names are constants
+# クラス名は定数である
 
 X = 'hello'
 Y = X
@@ -104,19 +110,18 @@ MyOtherClass.new
 
 Y = 10
 Array = MyClass
-Array = MyClass
-# [restart interpreter]
+# [pryを再起動する]
 
-# modules
+# モジュールとは?
 
 Class.superclass # => Module
 Class.instance_methods
 Class.instance_methods - Module.instance_methods
 Class.instance_methods(false) # => [:allocate, :new, :superclass]
 
-# let's put it together
+# まとめて書いてみよう
 
-# [draw diagram while exploring]
+# [調べながら、図を買いてみる]
 
 class MyClass
   def my_method
@@ -133,12 +138,12 @@ MyClass.superclass # => Object
 MyClass.class # => Class
 Class.superclass # => Module
 
-# Quiz: 1.missing_lines
-# [distribute missing_lines.jpg handout]
+# 課題: 1.missing_lines
+# [missing_lines.jpg を配布]
 
-# method lookup
+# メソッドを見つける仕組み
 
-# [maybe restart interpreter]
+# [REPLを再起動する]
 
 class MyClass
   def my_method
@@ -152,7 +157,7 @@ end
 obj = MySubclass.new
 obj.my_method() # => 1
 
-# [draw or update diagram]
+# [板書の図を更新]
 
 obj.__id__
 MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
@@ -160,7 +165,7 @@ MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
 obj.method(:__id__)
 obj.method(:__id__).owner # => BasicObject
 
-# modules and lookup
+# モジュールとmodules and lookup
 
 module M1
   def my_method
@@ -174,10 +179,10 @@ end
 
 class D1 < C1; end
 
-# [draw diagram]
+# [図を板書する]
 D1.ancestors # => [D1, C1, M1, Object, Kernel, BasicObject]
 
-# prepend
+# Prepend メソッド
 
 class C2
   prepend M1
@@ -186,11 +191,11 @@ end
 class D2 < C2; end
 
 D2.ancestors # => [D2, M1, C2, Object, Kernel, BasicObject]
-# [draw diagram]
+# [図を板書する]
 
-# self
+# self メソッド
 
-# [restart interpreter]
+# [REPLを再起動する]
 
 class MyClass
   def testing_self
@@ -198,7 +203,7 @@ class MyClass
     my_method
     self
   end
-  
+
   def my_method
     @var = @var + 1
   end
@@ -210,18 +215,18 @@ obj = MyClass.new
 
 obj.testing_self # => #<MyClass:0x007f91d20eec58 @var=11>
 
-# class definitions and self
+# クラス定義とselfメソッド
 
 class MyClass
   self # => MyClass
 end
 
-# the top level
+# self はトップレベル
 
 self # => main
 self.class # => Object
 
-# Kernel Method
+# Kernel メソッド
 
 Object.ancestors # => [Object, Kernel, BasicObject]
 
@@ -235,8 +240,8 @@ end
 "abc".class.ancestors # => [String, Comparable, Object, Kernel, BasicObject]
 
 self.greet # => "Hello!"
-greet # => "Hello!"
+greet      # => "Hello!"
 
-# Quiz: 1.tangle_of_modules
+# 課題: 1.tangle_of_modules
 
-# handout: object_model_1_wrap_up.txt
+# 配布: object_model_1_wrap_up.md
