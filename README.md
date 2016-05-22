@@ -5,7 +5,7 @@ This is a one-day advanced Ruby training for beginner and intermediate Ruby deve
 This is a hands-on training. Attendants will spend most of their time writing code. Even during the most theoretical lessons, they will constantly learn from concrete practice, writing code snippets and short programs.
 
 
-## The teacher (author)
+## The original author
 
 Paolo "Nusco" Perrotta is the author of "Metaprogramming Ruby", widely considered one of the most important books on Ruby. He has tens of years of experience as a developer, a mentor of developers, and an Agile team coach. He is a frequent speaker and keynote speaker at conferences around the world.
 
@@ -37,3 +37,16 @@ An extended final exercise, with some additional theory.
 # Original Repo
 
 This is forked repository from [nusco/ruby-metaprogramming-tokyo](https://github.com/nusco/ruby-metaprogramming-tokyo/). All of licenses follow the original one.
+
+# 本リポジトリについて
+
+本リポジトリは、2015年12月15日に行われた[【出版記念】メタプログラミングRubyトレーニング](https://waicrew.doorkeeper.jp/events/32280)で使われたノートおよび課題集です。
+
+Fork元のリポジトリ: nusco/ruby-metaprogramming-tokyo
+https://github.com/nusco/ruby-metaprogramming-tokyo/
+
+CoEdo.rbで行われる非営利の用途に限り、上記主催者のPaoloさんおよび角さんから利用させて頂く承諾を事前に得ております。
+
+Yohei Yasukawa (@yasulab)
+YassLab - Having a Good Life with OpenSource ;)
+http://yaslab.jp/
