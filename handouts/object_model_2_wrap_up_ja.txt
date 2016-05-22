@@ -1,3 +1,6 @@
+著者: Paolo Perrottaさん ([@nusco](https://twitter.com/nusco))
+翻訳: 角 征典さん ([@kdmsnr](https://twitter.com/kdmsnr))
+
 □ There is only one kind of object—be it a regular object or a module.
 オブジェクトは1種類しかない（それが通常のオブジェクトでもモジュールでも）。
 

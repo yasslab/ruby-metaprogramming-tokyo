@@ -1,3 +1,6 @@
+著者: Paolo Perrottaさん ([@nusco](https://twitter.com/nusco))
+翻訳: 角 征典さん ([@kdmsnr](https://twitter.com/kdmsnr))
+
 □ An object is composed of a bunch of instance variables and a link to a class.
 オブジェクトはインスタンス変数とクラスへのリンクで構成されている。
 
