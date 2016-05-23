@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
-# In this quiz, you're not going to write (or even run) code until the very last
-# moment. Instead of editing the code in this file, you're supposed to think about
-# it and discuss it with your pairing partner.
+
+# NOTE:
+# この課題では、コードを修正するのは最後だけで十分です。
+# まずはコードを眺めていて、どういう風に動きそうか、
+# その振る舞いについて考えてみてください。
 #
-# Your company asked you to fix a bug in its legacy printing system. According
-# to the company’s bug tracker, there is a problem with the code below. The bug
-# description is simply:
+# QUIZ: Tangle_of_Modules
+# あなたの会社にはレガシーな印刷システムがあります。
+# そのバグトラッカーに、次のようなバグ報告がありました。
 #
-# "The print_to_screen() method is not calling the right print() method."
+# 「print_to_screen() メソッドが、私が定義した
+# 　print() メソッドを正しく呼び出してくれません😭」
 #
-# ...and that's it. The bug report doesn’t provide anymore details.
+# プログラムを実行してみて、まずは何が起こっているのか確認してみましょう。
+# その後、(バグ修正を始める前に) 問題の原因について考えてみてください。
+# この課題を解くためのヒントは、次の２つです。
 #
-# You can just run the code and see what's happening - and after that, you can fix the
-# bug by changing a single line. But don't do that just yet. Instead, try to reason about
-# the code. To solve this quiz, do two things:
+# 1. (紙の裏や余白などに) Bookクラスの継承チェーンの図を書いてみましょう。
+#    次に、図を見ながらどのprint()メソッドが呼び出されているのか確認します。
+#    Printableのprint()でしょうか? それとも、Documentのprint()でしょうか?
 #
-# 1. Draw the chain of ancestors of the Book class on paper. Based on that, can you
-# guess which version of print() gets called — the one in Printable, or the one in
-# Document?
+# 2. print_to_screen()がもう一方のprint()メソッドを呼び出すために、
+#    どういった修正方法があるでしょうか? いくつか考えてみてください。
 #
-# 2. Think about the quickest way to fix the code so that print_to_screen() calls the
-# other version of print() instead.
-#
-# Try to do both things before you ever run this program. Then feel free to check whether
-# your assumption are right: run the program, see what happens, and finally fix the code.
+# コードを修正する前に、まずはどんな解決方法があるか考えてみてください。
+# その後、自分の考えが合っているかどうか、コードを修正・実行してみてください。
+# 最後に、他にどんな修正方法があるのか考えてみてください。
 
 module Printable
   def print
