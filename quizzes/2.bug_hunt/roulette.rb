@@ -1,4 +1,6 @@
-# Look at the code below. Don't run it yet.
+# -*- coding: utf-8 -*-
+# まずは次のコードを読んでください
+# (まだ実行はしないでください)
 
 class Roulette
   def method_missing(name, *args)
@@ -11,13 +13,14 @@ class Roulette
   end
 end
 
-# The idea of this class is that you can use it like this:
+# このクラスがうまくできていれば
+# 次のように使えるにしたいです。
 
 number_of = Roulette.new
 puts number_of.bob
 puts number_of.frank
 
-# And the result is supposed to look like:
+# 結果は次のように欲しいのですが...
 #
 #   5...
 #   6...
@@ -28,11 +31,23 @@ puts number_of.frank
 #   10...
 #   Frank got a 10
 #
-# Unfortunately, this small class contains a bug. Can you see it before
-# you run the code?
+# が、実際は、このようにうまく動いてくれません ><
+# 実行する前に、その原因について考えてみてください。
 #
-# If you cannot see the bug, then try running the code. Can you explain
-# what is happening? (Note: this is not easy to explain, so don't get
-# frustrated!)
+# バグの原因がわからなかったら、コードを実行してみましょう
+# 何が起こっているか説明することができますか?
+# (言葉で説明するのは難しいかもしれませんが、なんとなく理解できていれば十分!)
 #
-# Finally, how would you fix this bug?
+# 最後に、このバグを実際に直してみてください!
+# どんな修正方法がありますか?
+
+
+
+
+
+
+
+
+
+
+
