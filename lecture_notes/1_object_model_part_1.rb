@@ -72,7 +72,7 @@ obj.methods.grep(/my/) # => [:my_method]
 
 # [板書: メソッドはクラスの中にある]
 
-# メソッド vs. インスタンスメソッド
+# クラスメソッド vs. インスタンスメソッド
 
 MyClass.instance_methods == obj.methods # => true
 MyClass.methods == obj.methods # => false
@@ -135,11 +135,24 @@ obj1.my_method
 obj1.class # => MyClass
 obj2.class # => MyClass
 MyClass.superclass # => Object
-MyClass.class # => Class
+MyClass.class    # => Class
 Class.superclass # => Module
 
 # 課題: 1.missing_lines
 # [missing_lines.jpg を配布]
+
+1. Objectクラスを生成するクラスは何でしょうか? 図に書き加えてみてください。
+
+2. Moduleクラスの親クラスは何でしょうか? 図に書き加えてみてください。
+
+3. Classクラスを生成するクラスは何でしょうか? 図に書き加えてみてください。
+
+4.  次のコードを実行したときの`obj3`を、図に書き加えてみてください。
+
+   ```ruby
+   obj3 = MyClass.new
+   obj3.instance_variable_set("@x", 10)
+   ```
 
 # メソッドを見つける仕組み
 
@@ -151,16 +164,16 @@ class MyClass
   end
 end
 
-class MySubclass < MyClass
+class MySubClass < MyClass
 end
 
-obj = MySubclass.new
+obj = MySubClass.new
 obj.my_method() # => 1
 
 # [板書の図を更新]
 
 obj.__id__
-MySubclass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
+MySubClass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
 
 obj.method(:__id__)
 obj.method(:__id__).owner # => BasicObject
@@ -184,11 +197,17 @@ D1.ancestors # => [D1, C1, M1, Object, Kernel, BasicObject]
 
 # Prepend メソッド
 
-class C2
-  prepend M1
+module M2
+  def my_method
+    'M2#my_method'
+  end
 end
 
-class D2 < C2; end
+class C1
+  prepend M2
+end
+
+#class D2 < C2; end
 
 D2.ancestors # => [D2, M1, C2, Object, Kernel, BasicObject]
 # [図を板書する]
