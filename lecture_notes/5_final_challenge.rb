@@ -1,4 +1,5 @@
-# a review of attr_accessor()
+# -*- coding: utf-8 -*-
+# attr_accessor()のレビュー
 
 class MyClass
   attr_accessor :my_attribute
@@ -18,21 +19,21 @@ obj = MyClass.new
 obj.my_attribute = 'x'
 obj.my_attribute        # => "x"
 
-# eval
+# evalの実行
 
 array = [10, 20]
 element = 30
 eval("array << element") # => [10, 20, 30]
 
-# Quiz: checked_attributes_1
+# 課題: checked_attributes_1
 
-# [explain why eval() is dangerous]
+# [なぜeval()が危険なのか説明]
 
-# Quiz: checked_attributes_2
+# 課題: checked_attributes_2
 
-# Quiz: checked_attributes_3
+# 課題: checked_attributes_3
 
-# Class Macros
+# クラスマクロ
 
 class MyClass
   def attr1=(value)
@@ -52,7 +53,7 @@ obj = MyClass.new
 obj.attr2 = 'x'
 obj.attr2        # => "x"
 
-# defining a new Class Macro
+# クラスマクロを定義する
 
 def MyClass.my_macro(x)
   puts x
@@ -62,9 +63,9 @@ class MyClass
   my_macro 10
 end
 
-# Quiz: checked_attributes_4
+# 課題: checked_attributes_4
 
-# hook methods
+# フックメソッド
 
 class String
   def self.inherited(subclass)
@@ -99,7 +100,7 @@ module M
   def my_method; end
 end
 
-# Object#extend
+# Object#extend メソッド
 
 module MyModule
   def my_method; 'hello'; end
@@ -115,6 +116,6 @@ end
 
 MyClass.my_method   # => "hello"
 
-# Quiz: checked_attributes_5
+# 課題: checked_attributes_5
 
 
