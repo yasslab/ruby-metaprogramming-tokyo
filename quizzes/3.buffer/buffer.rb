@@ -1,4 +1,5 @@
-# Write a class named Buffer that passes this test:
+# -*- coding: utf-8 -*-
+# 次のテストが成功するように、Bufferクラスを実装してみてください
 
 require 'test/unit'
 
@@ -28,6 +29,6 @@ class BufferTest < Test::Unit::TestCase
   end
 end
 
-# In practice, a Buffer should store pieces of code without executing them, and
-# then execute all of them in order when you call Buffer#play.
-# To solve this quiz, remember the & operator!
+# Bufferクラスには、コードを実行するのではなく保存させるようにしてみましょう。
+# その後、Buffer#playを呼び出したときに、保存したコードを順次実行していきます。
+# ヒント: `&` オペレーターを使ってみましょう :)

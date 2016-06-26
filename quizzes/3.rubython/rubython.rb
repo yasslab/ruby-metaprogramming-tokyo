@@ -1,34 +1,39 @@
-# To solve this quiz you need to know:
-# - how Ruby blocks work;
-# - how to raise and catch exceptions in Ruby.
+# -*- coding: utf-8 -*-
 
-# Python has a "with" statement that automatically frees a resource after you finish using it. C# and Java have similar features. In this quiz, you'll be asked to create something similar for Ruby.
+# この課題を解くためには、次のことを理解している必要があります:
+# - Rubyのブロックがどのように動いているのか
+# - Rubyで例外を発生させる方法と例外を捕捉する方法
 
-# Let's create a resource to test our implementation of with().
-# A resource is just an object with a dispose() method:
+# Pythonには `with` という構文があります。これはコード実行後に自動的にリソースを解放する構文です。
+# C#とJavaにも、同様の機能があります。
+# この課題を通して、似たような機構をRubyで実装してみましょう。
+
+# テストで記述された仕様を満たすように、with()メソッドを実装してみましょう。
+# なお、リソースは、dispose()メソッドを持った単純なオブジェクトとします。
 
 class Resource
   def dispose
     @disposed = true
   end
 
-  # This method is here to test that
-  # a resource has been disposed of.
+  # このメソッドでリソースが
+  # 解放できたことを確認します
   def disposed?
     @disposed
   end
 end
 
-# Here are a few tests for the with() method:
+# with()メソッドに対する仕様は次のとおりです。
+# 次のテストを通るように実装してみましょう。
 
 require 'test/unit'
 
 class TestWith < Test::Unit::TestCase
 
-  # When I call with() and pass it a disposable object and a block,
-  # then:
-  # 1) the block is executed
-  # 2) dispose() is called on the disposable object
+  # with()を呼び出して、解放可能なオブジェクトとブロックを渡したとき、
+  # 次のように振る舞います:
+  # 1) そのブロック内のコードを実行します
+  # 2) リソース (オブジェクト) のdispose()を呼び出します
   def test_disposes_of_resources
     x = 0
     disposable = Resource.new
@@ -40,32 +45,35 @@ class TestWith < Test::Unit::TestCase
     assert_equal 1, x
     assert disposable.disposed?
   end
-  
-  # Even if the block raises an exception, the resource
-  # is still disposed of.
+
+  # たとえブロック内で例外が発生しても、
+  # そのリソースは解放されているべきです
   def test_disposes_of_resources_in_case_of_exception
     disposable = Resource.new
 
-    # The exception is still raised...
+    # たとえ例外が発生しても...
     assert_raises(Exception) {
       with(disposable) do
         raise Exception
       end
     }
 
-    # ...and the resource is disposed of.
+    # ...そのリソースは解放されているべき
     assert disposable.disposed?
   end
 end
 
-# OK, it's finally time to write the with() method. Let's write it as
-# a method of the Kernel module, so that we can call it from any place
-# in our program. (If you don't know about Kernel, then just trust me
-# for now: if you define a method in there, then this method will be
-# accessible from anywhere).
+# では、Kernelモジュールの１つのメソッドとして、
+# 上で記述されたwith()メソッドを実装してみましょう。
+# これにより、プログラム中のどこからでも
+# with()メソッドを呼び出せるようになります。
+
+# なお、Kernelモジュールの仕組みは知らなくても大丈夫です。
+# そこで定義されたメソッドはどこからでもアクセスできる
+# とだけ覚えておけば、今のところは問題ありません :)
 
 module Kernel
   def with(disposable_resource)
-    # TODO: this is your quiz. What do you write here?
+    # TODO: ここが課題。どういう風に実装しますか?
   end
 end
