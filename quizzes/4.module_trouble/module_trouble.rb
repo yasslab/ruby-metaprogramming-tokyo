@@ -1,5 +1,8 @@
-# Every single day, somewhere in the world, a Ruby programmer
-# tries to define a class method by including a module, like this:
+# -*- coding: utf-8 -*-
+
+# 世界のどこかにいるRubyistは、
+# Module内で次のようなclassメソッドを
+# 定義しようとしています。
 
 module MyModule
   def my_method
@@ -15,14 +18,15 @@ MyClass.my_method # => NoMethodError!
 
 puts "OK!"
 
-# The code above breaks, because you only get instance methods by
-# including a module - not class methods. How would you change the
-# code above so that MyModule stays the same, but my_method becomes
-# a class method on MyClass?
+# コメントにもあるように、上のコードはうまく動きません。
+# というのも、Module内ではクラスメソッドではなく
+# インスタンスメソッドを定義しているからです。
+# MyModuleを一切変更せずに、
+# my_methodをMyClassのクラスメソッドにしたい場合
+# あなただったらどう実装しますか?
 #
-# (If you happen to know about the extend() method, try *not* to use
-# it - it makes things so easy, you can call it cheating. :)
-# Instead, think about the object model and singleton classes.)
+# ただし、例外処理とexntend()メソッドは使わないでください。
+# ヒント: オブジェクトモデルと特異クラスについて考えてみましょう
 #
-# How would you modify the code above so that you can call
-# MyClass.my_method() without getting an exception?
+# 例外などを使わずにMyClass.my_method()を実行するためには
+# 上記のコードをどのように変更すればよいでしょうか?
