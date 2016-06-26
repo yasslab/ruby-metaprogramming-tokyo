@@ -28,6 +28,7 @@ end
 # ヒント: 詰まったらClass.new()のドキュメントを読んでみましょう.
 # classはタブーですが、Classクラスは使っても大丈夫です :)
 # http://docs.ruby-lang.org/ja/2.0.0/class/Class.html
+# http://docs.ruby-lang.org/ja/2.0.0/method/Class/s/new.html
 
 require 'test/unit'
 
