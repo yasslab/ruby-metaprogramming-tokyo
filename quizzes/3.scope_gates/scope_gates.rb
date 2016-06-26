@@ -1,21 +1,28 @@
-# Three things in Ruby act as "Scope Gates": class definitions, module
-# definitions and methods. One important skill for a Ruby programmer is
-# carrying values across this gate. Look at this program:
+# -*- coding: utf-8 -*-
+
+# Rubyにはスコープゲートとして機能するものが３つあります:
+#
+# 1. クラス定義
+# 2. モジュール定義
+# 3. メソッド定義
+#
+# Rubyistとして重要なスキルの１つに、
+# スコープゲートを越えて値を渡すというスキルがあります。
+# まずは次のプログラムを見てみましょう:
 
 my_var = "Success"
 
-class MyClass # you must change this line
-  puts "#{my_var} in the class definition. You're half done!"
+class MyClass   # この行のみ改変可能
+  puts "クラス定義を越えられた? => #{my_var}"
 
-  def my_method # you must change this line
-    puts "#{my_var} in the method. Congratulations, you made it!"
+  def my_method # この行のみ改変可能
+    puts "メソッド定義を越えられた? => #{my_var}"
   end
 end
 
 MyClass.new.my_method
 
-# If you try to run the program, it will fail, because "my_var" is not available
-# either in the class definition or in the method. To make this work, you need to
-# change the two lines with comments "you must change this line". You should have
-# the exact same behavior (define a class, define a method), but without any Scope
-# Gate.
+# 最初にこのプログラムを実行すると、失敗するはずです。
+# "my_var" という変数がクラス内またはメソッドないに存在しないからです。
+#
+# 「改変可能」と書かれた箇所のみ改変して、プログラムを成功させてみてください。
