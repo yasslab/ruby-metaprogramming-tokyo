@@ -1,12 +1,15 @@
-# Here is a pretty hard quiz. Make this code pass without an exception:
+# -*- coding: utf-8 -*-
 
-# TODO: write your code here
+# やや難しめの課題です。
+# 例外を発生させずに、次のプログラムを正常に終了させてみてください。
 
-raise "WRONG!" unless 1 + 1 == 3
+# TODO: ここにコードを書き加えます
 
-# I'm serious.
+raise "WRONG!" unless 1 + 1 == 3  # ここは改変不可!
+
+# 本当にできます :)
 #
-# You're not allowed to touch the line of code above. Before that line,
-# you can write any code you like.
+# 上記のraiseのコードを弄ってはいけませんが、
+# それより手前にはどんなコードを書いても構いません。
 #
-# (Hint: you'll probably need to use the alias_method() method).
+# ヒント: alias_method()を使うと...? 調べてみましょう!

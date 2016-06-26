@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Did you ever play Taboo? The rules are simple: you’re given a secret
-# word and a list of words that you cannot use. (They are “taboo.”)
-# You must help a teammate guess the secret word. You can give your
-# teammate as many suggestions as you want, but you must never say a
-# taboo word. If you do that, you lose immediately.
+
+# Tabooというゲームを知っていますか? ルールはシンプルで、
+# 秘密の言葉と使ってはいけない言葉 (タブー) が渡されるので、
+# タブーを使わずに、チームメイトに秘密の言葉を気づかせるゲームです。
 #
-# Your challenge: play Taboo with Ruby code. You have only one taboo
-# word, the *class* keyword. Your “secret word” is actually a Ruby
-# class:
+# 課題: RubyでTabooをプレイしてみましょう。
+# 今回のタブーは「classキーワード」です。
+# そして秘密の言葉は「Rubyのクラス名」です。
+# タブーを使わずに、秘密の言葉を出力してみましょう。
 
 class MyClass < Array
   def my_method
@@ -15,12 +15,19 @@ class MyClass < Array
   end
 end
 
-# Now try to rewrite the code above without using the class keyword.
-# The test should still be green. In other words, you have to write
-# a piece of code that has exactly the same effect as the one above,
-# without ever using the class keyword. Are you up to the challenge?
+# classキーワードを使わずに、上記のコードを改造してみてください。
+# なお、テストは常に成功している状態にしておかなければなりません。
 #
-# (Just one hint: look at the documentation for Class.new())
+# つまり、プログラムの振る舞いが変わっていないか
+# テストを使って確認しながら、コードを書き直してください。
+# ただし、classキーワードはタブーなので使ってはいけません。
+#
+# 最終的にクラス名を出力できたら、あなたの勝ちです。
+# 準備はできましたか?
+#
+# ヒント: 詰まったらClass.new()のドキュメントを読んでみましょう.
+# classはタブーですが、Classクラスは使っても大丈夫です :)
+# http://docs.ruby-lang.org/ja/2.0.0/class/Class.html
 
 require 'test/unit'
 
