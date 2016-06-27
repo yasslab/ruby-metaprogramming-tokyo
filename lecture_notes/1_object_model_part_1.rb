@@ -178,7 +178,7 @@ MySubClass.ancestors # => [MySubclass, MyClass, Object, Kernel, BasicObject]
 obj.method(:__id__)
 obj.method(:__id__).owner # => BasicObject
 
-# モジュールとmodules and lookup
+# モジュールとルックアップ
 
 module M1
   def my_method
