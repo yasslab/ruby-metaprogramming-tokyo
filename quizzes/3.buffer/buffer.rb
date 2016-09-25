@@ -31,3 +31,7 @@ end
 
 # Bufferクラスには、コードを実行するのではなく保存させるようにしてみましょう。
 # その後、Buffer#playを呼び出したときに、保存したコードを順次実行していきます。
+
+class Buffer
+  # TODO: ここでBuffer#insertを実装
+end
