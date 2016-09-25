@@ -31,7 +31,8 @@ end
 
 # Bufferクラスには、コードを実行するのではなく保存させるようにしてみましょう。
 # その後、Buffer#playを呼び出したときに、保存したコードを順次実行していきます。
+# ヒント: insert/playに加え、初期化用の特別なメソッド「initialize」も使います。
 
 class Buffer
-  # TODO: ここでBuffer#insertを実装
+  # TODO: ここにコードを書きます
 end
